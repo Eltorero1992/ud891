@@ -28,11 +28,16 @@
 
       case VK_UP:
       case VK_LEFT: {
-
         e.preventDefault();
 
         // This seems like a good place to do some stuff :)
+        if (this.focusedIdx <= 0) {
+          console.log("if Statement")
+          this.focusedIdx = 5;
+        }
 
+        this.focusedIdx -= 1
+        console.log("UP LEFT", this.focusedIdx)
         break;
 
       }
@@ -41,9 +46,14 @@
       case VK_RIGHT: {
 
         e.preventDefault();
-
         // This seems like a good place to do some stuff :)
+        if (this.focusedIdx >= 4) {
+          console.log("if Statement")
+          this.focusedIdx = -1;
+        }
 
+        this.focusedIdx += 1
+        console.log("DOWN RIGHT", this.focusedIdx)
         break;
       }
 
