@@ -31,13 +31,13 @@
         e.preventDefault();
 
         // This seems like a good place to do some stuff :)
-        if (this.focusedIdx <= 0) {
-          console.log("if Statement")
-          this.focusedIdx = 5;
+        if (this.focusedIdx === 0) {
+          this.focusedIdx = this.buttons.length -1;
+
+        } else {
+          this.focusedIdx --
         }
 
-        this.focusedIdx -= 1
-        console.log("UP LEFT", this.focusedIdx)
         break;
 
       }
@@ -47,13 +47,13 @@
 
         e.preventDefault();
         // This seems like a good place to do some stuff :)
-        if (this.focusedIdx >= 4) {
-          console.log("if Statement")
-          this.focusedIdx = -1;
+        if (this.focusedIdx === this.buttons.length -1) {
+          this.focusedIdx = 0;
+
+        } else {
+          this.focusedIdx ++
         }
 
-        this.focusedIdx += 1
-        console.log("DOWN RIGHT", this.focusedIdx)
         break;
       }
 
