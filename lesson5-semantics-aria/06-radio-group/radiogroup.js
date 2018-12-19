@@ -25,6 +25,9 @@
 
     // Any more initialization to do here?
 
+    this.el.setAttribute('role','radiogroup');
+
+
     var firstButton = true;
     for (var button of this.buttons) {
       if (firstButton) {
@@ -34,6 +37,7 @@
         button.tabIndex = "-1";
       }
 
+      button.setAttribute('role','radio')
       // What about here?
     }
 
@@ -98,6 +102,12 @@
     this.focusedButton.tabIndex = 0;
     this.focusedButton.focus();
     this.focusedButton.setAttribute('checked', '');
+
+    if (this.focusedButton.hasAttribute('checked')){
+      this.focusedButton.setAttribute('aria-checked',true)
+    } else {
+      this.focusedButton.setAttribute('aria-checked',false)
+    }
 
     // ... we probably want to do some stuff here, too ...
 
