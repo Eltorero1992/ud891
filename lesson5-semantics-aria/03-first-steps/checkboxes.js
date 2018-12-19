@@ -20,6 +20,12 @@
     this.el.addEventListener('keydown', this.handleKeyDown.bind(this));
     this.el.addEventListener('click', this.toggle.bind(this));
 
+    this.el.setAttribute('role','checkbox')
+    if (this.el.hasAttribute('checked')){
+      this.el.setAttribute('aria-checked',true)
+    } else {
+      this.el.setAttribute('aria-checked',false)
+    }
     // Any other set-up we want to do here?
   }
 
@@ -35,12 +41,14 @@
 
   Checkbox.prototype.toggle = function() {
     if (this.el.hasAttribute('checked')) {
-      this.el.removeAttribute('checked');
+      this.el.removeAttribute('checked')
+      this.el.setAttribute('aria-checked',false)
 
       // Hmm.
 
     } else {
       this.el.setAttribute('checked', '');
+      this.el.setAttribute('aria-checked', true)
 
       // Hmmmmm.
 
